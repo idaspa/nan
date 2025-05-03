@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teknologi</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+
+    <div id="navbar-placeholder"></div>
+    <script>
+      fetch('navbar.html')
+        .then(res => res.text())
+        .then(html => document.getElementById('navbar-placeholder').innerHTML = html);
+    </script>
+  
+    <header>
+      <h2>Teknologi:</h2>
+      <div class="alphabet-bar">
+        <div class="searchbox">
+          <input type="text" id="searchInput" placeholder="Hva leter du etter?" oninput="fuzzySearch(this.value)">
+        </div>
+        <div class="alphabet">
+          <!-- Alphabet A-Z buttons -->
+          <script>
+            document.write(
+              [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map(
+                letter => `<button onclick="filterByLetter('${letter}')">${letter}</button>`
+              ).join('')
+            );
+          </script>
+        </div>
+      </div>
+    </header>
+  
+    <main id="list-content">
+      <!-- Detailed websites for Økonomi will be displayed here -->
+    </main>
+  
+    <script>
+    const websites = [
+      { 
+        name: "",
+        link: "", 
+        letter: "",
+        adresse: "",
+        phone: "",
+        hours: "",
+        category: "teknologi"
+      },
+      { 
+        name: "Telenor",
+        link: "https://www.telenor.no/privat/",
+        letter: "T",
+        adresse: "arendal@telenorbutikken.no",
+        phone: "+47 984 55 550",
+        hours: "Man-Fre 10:00-20:00. Lør 10:00-18:00",
+        category: "teknologi"
+      }
+    ];
+
+    function displayWebsites() {
+  const content = document.getElementById("list-content");
+  content.innerHTML = ""; // Clear previous content
+
+  // Group websites by their starting letter
+  const grouped = {};
+  websites.forEach(site => {
+    if (!grouped[site.letter]) {
+      grouped[site.letter] = [];
+    }
+    grouped[site.letter].push(site);
+  });
+
+  // Display groups
+  Object.keys(grouped).sort().forEach(letter => {
+    const section = document.createElement("section");
+    section.innerHTML = `<h3>${letter}</h3>`; // The letter header
+
+    const groupContainer = document.createElement("div");
+    groupContainer.className = "website-group";
+
+    grouped[letter].forEach(site => {
+      const div = document.createElement("div");
+      div.className = "website-entry";
+      div.innerHTML = div.innerHTML = `
+  <a href="${site.link}" target="_blank" class="site-name">${site.name}</a><br>
+  <small>
+    ${site.adresse}<br>
+    Telefon: ${site.phone}<br>
+    Åpningstider: ${site.hours}<br>
+    <a href="${site.link}" target="_blank" class="site-link">${site.link}</a>
+  </small>
+`;
+      groupContainer.appendChild(div);
+    });
+
+    section.appendChild(groupContainer);
+    content.appendChild(section);
+  });
+}
+
+    function filterByLetter(letter) {
+      const filteredWebsites = websites.filter(site => site.letter === letter);
+      displayFilteredWebsites(filteredWebsites);
+    }
+
+    function displayFilteredWebsites(filteredWebsites) {
+      const content = document.getElementById("list-content");
+      content.innerHTML = "<h3>Resultater for " + filteredWebsites.length + " nettsteder</h3>";
+      
+      filteredWebsites.forEach(site => {
+        const div = document.createElement("div");
+        div.className = "website-entry";
+        div.innerHTML = `
+          <strong>${site.name}</strong><br>
+          <a href="${site.link}" target="_blank">${site.link}</a><br>
+          <small>
+            Adresse: ${site.adresse}<br>
+            Telefon: ${site.phone}<br>
+            Åpningstider: ${site.hours}
+          </small>
+        `;
+        content.appendChild(div);
+      });
+    }
+
+    // Initial Display
+    displayWebsites();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

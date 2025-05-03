@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Økonomi</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('navbar-placeholder').innerHTML = html);
+  </script>
+
+  <header>
+    <h2>Økonomi:</h2>
+    <div class="alphabet-bar">
+      <div class="searchbox">
+        <input type="text" id="searchInput" placeholder="Hva leter du etter?" oninput="fuzzySearch(this.value)">
+      </div>
+      <div class="alphabet">
+        <!-- Alphabet A-Z buttons -->
+        <script>
+          document.write(
+            [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map(
+              letter => `<button onclick="filterByLetter('${letter}')">${letter}</button>`
+            ).join('')
+          );
+        </script>
+      </div>
+    </div>
+  </header>
+
+  <main id="list-content">
+    <!-- Detailed websites for Økonomi will be displayed here -->
+  </main>
+
+  <script>
+    // Data for Økonomi category
+    const websites = [
+    { 
+        name:"NAV",
+        link: "https://www.nav.no/",
+        letter: "N",
+        adresse:"Nedre Tyholmsvei 13,<br> 4836 ARENDAL",
+        phone: "+47 55 55 33 33",
+        hours:"Man–Ons-Fre 12:00–14<br>Man-Tors time avtaler.",
+        category: "helsetjenester"
+      }, 
+    { 
+        name: "Altinn",
+        link: "https://info.altinn.no/", 
+        letter: "A",
+        adresse: "support@altinn.no.",
+        phone: "support@altinn.no.",
+        hours: "support@altinn.no.",
+        category: "økonomi"
+      },
+      { 
+        name: "Skatteetaten",
+        link: "https://www.skatteetaten.no/",
+        letter: "S",
+        adresse: "Jon Lilletuns Vei 1 <br> 4879 Grimstad",
+        phone: "+47 800 80 000.",
+        hours: "Man-Fre 09:00-15:00",
+        category: "økonomi"
+      },
+      {
+        name:"Husbanken",
+        link:"https://www.husbanken.no/person/",
+        letter:"H",
+        adresse:"post@husbanken.no",
+        phone:"+47 22 96 16 00",
+        hours:"Man-Fre 08:00-15:00",
+        category:"økonomi"
+      },
+      {
+        name:"Sparebanken Sør",
+        link:"https://www.sor.no/",
+        letter:"S",
+        adresse:"Vesterveien 1 A/B, 4836 Tyholmen",
+        phone:"+47 38 10 92 00",
+        hours:"Mandag-fredag 10:00-14:00",
+        category:"økonomi"
+},
+
+{
+        name:"Agder Sparebank",
+        link:"https://www.agdersparebank.no/",
+        letter:"A",
+        adresse:"Torvet 8, 4836 Arendal",
+        phone:"+47 37 00 49 00",
+        hours:"Man-Fre 07:00-21:00 Lør-Søn 09:00-21:00, <br>Kontoret: Man-Fre 10:00-14:00",
+        category:"økonomi"
+},
+
+{
+        name:"",
+        link:"",
+        letter:"",
+        adresse:"",
+        phone:"",
+        hours:"",
+        category:"økonomi"
+},
+{
+        name:"",
+        link:"",
+        letter:"",
+        adresse:"",
+        phone:"",
+        hours:"",
+        category:"økonomi"
+},
+
+
+    ];
+
+    function displayWebsites() {
+  const content = document.getElementById("list-content");
+  content.innerHTML = ""; // Clear previous content
+
+  // Group websites by their starting letter
+  const grouped = {};
+  websites.forEach(site => {
+    if (!grouped[site.letter]) {
+      grouped[site.letter] = [];
+    }
+    grouped[site.letter].push(site);
+  });
+
+  // Display groups
+  Object.keys(grouped).sort().forEach(letter => {
+    const section = document.createElement("section");
+    section.innerHTML = `<h3>${letter}</h3>`; // The letter header
+
+    const groupContainer = document.createElement("div");
+    groupContainer.className = "website-group";
+
+    grouped[letter].forEach(site => {
+      const div = document.createElement("div");
+      div.className = "website-entry";
+      div.innerHTML = div.innerHTML = `
+  <a href="${site.link}" target="_blank" class="site-name">${site.name}</a><br>
+  <small>
+    ${site.adresse}<br>
+    Telefon: ${site.phone}<br>
+    Åpningstider: ${site.hours}<br>
+    <a href="${site.link}" target="_blank" class="site-link">${site.link}</a>
+  </small>
+`;
+      groupContainer.appendChild(div);
+    });
+
+    section.appendChild(groupContainer);
+    content.appendChild(section);
+  });
+}
+
+    function filterByLetter(letter) {
+      const filteredWebsites = websites.filter(site => site.letter === letter);
+      displayFilteredWebsites(filteredWebsites);
+    }
+
+    function displayFilteredWebsites(filteredWebsites) {
+      const content = document.getElementById("list-content");
+      content.innerHTML = "<h3>Resultater for " + filteredWebsites.length + " nettsteder</h3>";
+      
+      filteredWebsites.forEach(site => {
+        const div = document.createElement("div");
+        div.className = "website-entry";
+        div.innerHTML = `
+          <strong>${site.name}</strong><br>
+          <a href="${site.link}" target="_blank">${site.link}</a><br>
+          <small>
+            Adresse: ${site.adresse}<br>
+            Telefon: ${site.phone}<br>
+            Åpningstider: ${site.hours}
+          </small>
+        `;
+        content.appendChild(div);
+      });
+    }
+
+    // Initial Display
+    displayWebsites();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

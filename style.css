@@ -1,0 +1,298 @@
+/* General Body Styling */
+body { 
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f0f4f8;
+    color: hsl(219, 86%, 23%);
+    text-align: center;
+    font-style: italic;
+  }
+  
+  /* Header Styling */
+  header {
+    border-top: 3px solid #3e84b7;
+    padding: 2rem 1rem;
+    background-color: #dde8f0;
+    border-bottom: none;
+  }
+  
+  h1 {
+    margin-bottom: 1rem;
+  }
+  
+  /* Navbar Styling */
+  nav button {
+    background-color: #0f3a58;
+    color: white;
+    margin: 0 10px;
+    padding: 0.5rem 1rem;
+    border: 3px solid #002d4d;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav button:hover {
+    background-color: #7fa9c8;
+  }
+  
+  /* Search Box */
+  .searchbox {
+    margin: 1.5rem 0;
+  }
+  
+  .searchbox input {
+    padding: 0.5rem;
+    width: 50%;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  /* Alphabet Filter Styling */
+  .alphabet-bar {
+    margin-bottom: 20px; /* Space between alphabet filter and website list */
+  }
+  
+  .alphabet button {
+    background-color: #bdd7ee;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem 0.8rem;
+    margin: 0.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .alphabet button:hover {
+    background-color: #7fa9c8;
+  }
+  
+  /* Category Styling */
+  .category {
+    margin: 3rem 0;
+  }
+  
+  /* Website Entries Styling */
+  .website-entry {
+    margin: 15px 0;  /* Adds space between entries */
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  
+  .website-entry a {
+    text-decoration: none;
+    color: #336699;
+  }
+  
+  .website-entry a:hover {
+    text-decoration: underline;
+  }
+  
+  #list-content > section {
+    display: inline-block;
+    vertical-align: top;
+    margin: 2rem;
+  }
+  
+  /* Carousel Styling */
+  .carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .carousel-item {
+    min-width: 200px;
+    margin: 0 1rem;
+    background-color: #3e84b7;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .carousel-item a {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: #336699;
+    text-decoration: none;
+  }
+  
+  .carousel-item a:hover {
+    text-decoration: underline;
+  }
+  
+  .next {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  /* Arrow Styling */
+  .arrow {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #336699;
+    padding: 0 1rem;
+    user-select: none;
+  }
+  
+  .arrow:hover {
+    color: #003366;
+  }
+  
+  /* Main Navigation Styling */
+  .main-nav {
+    background-color: #c5d8e8;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    border-bottom: 2px solid#003366;
+  }
+  
+  .main-nav a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+    transition: background-color 0.3s;
+  }
+  
+  .main-nav a:hover {
+    background-color: #99bbdd;
+  }
+  
+  /* Image Styling */
+  .carousel-item img {
+    width: 80px; /* You can adjust this based on your design */
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 0.5rem; /* Space between the image and the text */
+  }
+  
+  /* Carousel Container */
+  .carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+  }
+  
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .carousel-item {
+    min-width: 180px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .arrow {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #336699;
+    padding: 0 1rem;
+    user-select: none;
+  }
+  
+  .arrow:hover {
+    color: #003366;
+  }
+  
+  /* Optional Styling for the Par */
+  .par {
+    font-style: italic;
+  }
+
+  .website-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .website-entry {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    padding: 0.8rem;
+    width: 250px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  
+  .site-name {
+    font-weight: bold;
+    color: #0f3a58;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .site-name:hover {
+    text-decoration: underline;
+  }
+  
+  .site-link {
+    font-size: 0.75rem;
+    color: #666;
+    text-decoration: none;
+    display: block;
+    margin-top: 0.4rem;
+    word-break: break-word;
+  }
+  
+  .site-link:hover {
+    text-decoration: underline;
+  }

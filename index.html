@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mest brukte nettsteder</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <a href="http://127.0.0.1:5500/index.html"></a>
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('navbar-placeholder').innerHTML = html);
+  </script>
+
+  <main id="content">
+    <!-- Økonomi Category Preview -->
+    <section class="category">
+      <h3>Økonomi</h3>
+      <div class="carousel-container">
+        <button class="arrow left" onclick="scrollCarousel('carousel-okonomi', -1)">←</button>
+        <div class="carousel-track" id="carousel-okonomi"></div>
+        <button class="arrow right" onclick="scrollCarousel('carousel-okonomi', 1)">→</button>
+      </div>
+  
+    </section>
+
+    <!-- Helsetjenester Category Preview -->
+    <section class="category">
+      <h3>Helsetjenester</h3>
+      <div class="carousel-container">
+        <button class="arrow left" onclick="scrollCarousel('carousel-helsetjenester', -1)">←</button>
+        <div class="carousel-track" id="carousel-helsetjenester"></div>
+        <button class="arrow right" onclick="scrollCarousel('carousel-helsetjenester', 1)">→</button>
+      </div>
+    </section>
+
+ <section class="category">
+      <h3>Hobby</h3>
+      <div class="carousel-container">
+        <button class="arrow left" onclick="scrollCarousel('carousel-hobby', -1)">→</button>
+        <div class="carousel-track" id="carousel-hobby"></div>
+        <button class="arrow right" onclick="scrollCarousel('carousel-hobby', +1)">→</button>
+      </div>
+    </section>
+    <!-- Teknologi Category Preview -->
+    <section class="category">
+      <h3>Teknologi</h3>
+      <div class="carousel-container">
+        <button class="arrow left" onclick="scrollCarousel('carousel-teknologi', -1)">←</button>
+        <div class="carousel-track" id="carousel-teknologi"></div>
+        <button class="arrow right" onclick="scrollCarousel('carousel-teknologi', 1)">→</button>
+      </div>
+    </section>
+
+   
+    <!-- Diverse Category Preview -->
+    <section class="category">
+      <h3>Diverse</h3>
+      <div class="carousel-container">
+        <button class="arrow left" onclick="scrollCarousel('carousel-diverse', -1)">←</button>
+        <div class="carousel-track" id="carousel-diverse"></div>
+        <button class="arrow right" onclick="scrollCarousel('carousel-diverse', 1)">→</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Optional Footer -->
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Updated Data
+    const websites = [
+      { 
+        name: "Altinn", link: "https://info.altinn.no/", letter: "A", category: "økonomi" },
+      { 
+        name: "NAV", link: "https://www.nav.no/", letter: "N", category: "helsetjenester" },
+      { 
+        name: "Skatteetaten", link: "https://www.skatteetaten.no/", letter: "S", category: "økonomi" },
+      { 
+        name: "Telenor", link: "https://www.google.com", letter: "T", category: "teknologi" },
+      { 
+        name: "Apple", link: "https://www.apple.com", letter: "A", category: "teknologi" },
+        {
+          name: "HelseNorge", link: "https//helsenorge.no", letter: "H", category: "helsetjenester",
+        },
+        {
+          name:"", lik:"", letter:"", category:"hobby", 
+        },
+    ];
+
+    // Function to display websites in carousels
+    function displayWebsites() {
+      const categories = ['økonomi', 'helsetjenester','hobby', 'teknologi', 'diverse'];
+
+      categories.forEach(category => {
+        const categorySection = document.getElementById('carousel-' + category);
+        const categoryWebsites = websites.filter(website => website.category === category);
+        categoryWebsites.forEach(website => {
+          const div = document.createElement('div');
+          div.className = 'carousel-item';
+          div.innerHTML = `<a href="${website.link}" target="_blank">${website.name}</a>`;
+          categorySection.appendChild(div);
+        });
+      });
+    }
+
+    // Call the function to display websites on page load
+    displayWebsites();
+
+    // Carousel scroll functions
+    function scrollCarousel(id, direction) {
+      const track = document.getElementById(id);
+      const itemWidth = track.querySelector('.carousel-item').offsetWidth;
+      track.scrollBy(direction * itemWidth, 0);
+    }
+  </script>
+</body>
+</html>

@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hobby</title>
+  <title>Helsetjenester</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
-    <script>
-      fetch('navbar.html')
-        .then(res => res.text())
-        .then(html => document.getElementById('navbar-placeholder').innerHTML = html);
-    </script>
-<header>
-    <h2>Hobby:</h2>
+
+  <div id="navbar-placeholder"></div>
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('navbar-placeholder').innerHTML = html);
+  </script>
+
+  <header>
+    <h2>Helsetjenester:</h2>
     <div class="alphabet-bar">
       <div class="searchbox">
         <input type="text" id="searchInput" placeholder="Hva leter du etter?" oninput="fuzzySearch(this.value)">
@@ -37,71 +39,25 @@
   </main>
 
   <script>
-    const websites = [
-    {
-        name:"Garnius Gratis Oppskrifter",
-        link:"https://www.garnius.no/gratis-oppskrifter",
-        letter:"G",
+     const websites = [
+      { 
+        name: "Helsenorge",
+        link: "https://www.helsenorge.no", 
+        letter: "H",
+        adresse:"N/A",
+        phone: "+47 23 32 70 00, PasientReiser: 05515",
+        hours: "Hverdager mellom 08:00-15:30.",
+        category: "helsetjenester"
+      },
+      {
+        name:"Hisøy Legesenter",
+        link:"https://hisoylegesenter.no/",
+        letter:"H",
         adresse:"",
-        category:"hobby"
+        phone:"+47 37 05 88 80",
+        hours:" På TLF Man-Fre 08.00-11.00 & 13.00-14:00>br> selve lege senteret Man-Fre 08:30-15:00",
+        category:"helsetjenester"
 },
-{
-        name:"Strikkemekka",
-        link:"https://www.strikkemekka.no/kontaktoss",
-        letter:"S",
-        adresse:"",
-        phone:"post@strikkemekka.no",
-        hours:"Chat: Man-Fre 08:00 og 14:00. ",
-        category:"hobby"
-},
-{
-        name:"GarnStudio",
-        link:"https://www.garnstudio.com/home.php?cid=1",
-        letter:"G",
-        adresse:"",
-        phone:"+47 23 30 32 20",
-        hours:"contact@garnstudio.com",
-        category:"hobby"
-},
-{
-        name:"Ali Express",
-        link:"https://www.aliexpress.com/",
-        letter:"A",
-       
-        phone:"N/A",
-        hours:"N/A",
-        category:"hobby"
-},
-{
-        name:"Temu",
-        link:"https://www.temu.com/",
-        letter:"T",
-      
-        phone:"N/A",
-        hours:"N/A",
-        category:"hobby"
-},
-
-{
-        name:"",
-        link:"",
-        letter:"",
-        adresse:"",
-        phone:"",
-        hours:"",
-        category:""
-},
-
-{
-        name:"",
-        link:"",
-        letter:"",
-        adresse:"",
-        phone:"",
-        hours:"",
-        category:""
-},
-
 {
         name:"",
         link:"",
